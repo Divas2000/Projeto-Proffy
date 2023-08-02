@@ -14,7 +14,7 @@ export default async function RootLayout({
         </h1>
 
         <form className="flex flex-col">
-          <div className="relative before:content-[''] before:absolute before:top-3 before:left-[-1px] before:z-10 before:w-[2px] before:h-[48px] focus-within:before:bg-pink-500">
+          <div className="relative before:content-[''] before:absolute before:top-3 before:left-[-.5px] before:z-10 before:w-[2px] before:h-[48px] before:rounded focus-within:before:bg-pink-500">
             <input 
               type="email" 
               placeholder="E-mail" 
