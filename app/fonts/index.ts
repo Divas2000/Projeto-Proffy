@@ -1,12 +1,13 @@
-import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Archivo, Poppins } from 'next/font/google';
 
-export const sfPro = localFont({
-  src: "./SF-Pro-Display-Medium.otf",
-  variable: "--font-sf",
+export const archivo = Archivo({
+  weight: ['600', '700'],
+  subsets: ['latin'],
+  variable: '--font-archivo',
 });
 
-export const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+export const poppins = Poppins({
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
 });
