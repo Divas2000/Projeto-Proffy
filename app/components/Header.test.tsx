@@ -9,6 +9,6 @@ describe("Header Component", () => {
   test("should render header title", () => {
     const { queryByText } = render(<Header/>);
 
-    expect(queryByText(TITLE)).toBeTruthy();
+    expect(queryByText(TITLE)).toBeInTheDocument();
   });
 });

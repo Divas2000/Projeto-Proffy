@@ -6,7 +6,7 @@ const createJestConfig = nextJest({
 })
 
 const customJestConfig = {
-  //setupFilesAfterEnv: ['./jest.setup.js'], (set up the testing framework before each test file in the suite is executed.)
+  setupFilesAfterEnv: ['./jest.setup.js'], //(set up the testing framework before each test file in the suite is executed.)
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   collectCoverage: true,
