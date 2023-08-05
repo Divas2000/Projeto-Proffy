@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // jest.config.js
-const nextJest = require('next/jest')
+const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({
   dir: './'
-})
+});
 
 const customJestConfig = {
   setupFilesAfterEnv: ['./jest.setup.js'], //(set up the testing framework before each test file in the suite is executed.)
@@ -14,6 +15,6 @@ const customJestConfig = {
   collectCoverageFrom: [
     './components/**/*.ts(x)?'
   ]
-}
+};
 
-module.exports = createJestConfig(customJestConfig)
+module.exports = createJestConfig(customJestConfig);
