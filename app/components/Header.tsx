@@ -1,9 +1,12 @@
-import React from 'react';
+interface HeaderProps {
+  /**Descrição legal da prop1 */
+  prop1: string;
+}
 
-const Header = () => {
+export const Header = ({ prop1 }: HeaderProps) => {
   return (
-    <div>Header</div>
+    <>
+      <div>Header</div>
+    </>
   );
 };
-
-export default Header;
