@@ -6,10 +6,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["app/components/*"],
-      "@/pages/*": ["pages/*"],
       "@/app/*": ["app/*"],
-      "@/styles/*": ["styles/*"]
+      "@/components/*": ["app/components/*"],
+      "@/atoms/*": ["app/components/atoms/*"]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
