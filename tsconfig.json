@@ -7,8 +7,9 @@
     "baseUrl": ".",
     "paths": {
       "@/app/*": ["app/*"],
-      "@/components/*": ["app/components/*"],
-      "@/atoms/*": ["app/components/atoms/*"]
+      "@/atoms/*": ["app/components/atoms/*"],
+      "@/molecules/*": ["app/components/molecules/*"],
+      "@/organisms/*": ["app/components/organisms/*"]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
