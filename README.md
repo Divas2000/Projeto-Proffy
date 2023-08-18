@@ -1,4 +1,4 @@
-![Alt text](app/public/image.png)
+![Proffy Banner](assets/banner.png)
 
 ## Introdução
 
