@@ -15,7 +15,7 @@ describe("HomeButton Component", () => {
   test("render the correct label for secondary button", () => {
     render(<Secondary />);
 
-    const label = screen.getByText(/clique em estudar/i);
+    const label = screen.getByLabelText(/clique em estudar/i);
 
     expect(label).toBeInTheDocument();
   });

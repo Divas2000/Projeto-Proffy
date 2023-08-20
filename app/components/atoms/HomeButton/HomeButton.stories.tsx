@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "../../../globals.css";
+import "@/app/globals.css";
 
 import { HomeButton } from "./HomeButton";
 import { Airplay } from "lucide-react";
