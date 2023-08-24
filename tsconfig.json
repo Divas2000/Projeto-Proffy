@@ -1,15 +1,27 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/app/*": ["app/*"],
-      "@/atoms/*": ["app/components/atoms/*"],
-      "@/molecules/*": ["app/components/molecules/*"],
-      "@/organisms/*": ["app/components/organisms/*"]
+      "@/app/*": [
+        "app/*"
+      ],
+      "@/atoms/*": [
+        "app/components/atoms/*"
+      ],
+      "@/molecules/*": [
+        "app/components/molecules/*"
+      ],
+      "@/organisms/*": [
+        "app/components/organisms/*"
+      ]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,6 +39,13 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
