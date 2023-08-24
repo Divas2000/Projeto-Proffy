@@ -22,9 +22,9 @@ interface VariableBorderInputProps extends ComponentProps<"input"> {
    * If not informed, the default value is `all`.
    */
   border?: "top" | "bottom" | "none" | "all";
-  /** [Optional] Input icon. */
+  /** Input icon. */
   Icon?: LucideIcon;
-  /** [Optional] onClick handler on icon if it is interactive. */
+  /** Click handler on icon if it is interactive. */
   iconOnClick?: () => void;
 }
 

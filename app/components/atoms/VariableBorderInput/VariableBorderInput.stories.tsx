@@ -8,22 +8,13 @@ const meta = {
   component: VariableBorderInput,
   parameters: {
     layout: "centered",
-    controls: {
-      sort: "requiredFirst",
-    },
   },
   tags: ["autodocs"],
   argTypes: {
-    id: {
-      control: "text",
-    },
     type: {
       description: "Input type.",
       options: ["text", "email", "password", "tel"],
       control: "select",
-    },
-    placeholder: {
-      control: "text",
     },
     border: {
       description: "border-radius style based on Tailwind utility classes.",
