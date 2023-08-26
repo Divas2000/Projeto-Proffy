@@ -13,6 +13,7 @@ export function Checkbox({ id, label }: CheckboxProps) {
     <div className="flex gap-4">
       <RadixCheckbox.Root
         id={id}
+        aria-label={label}
         className="flex w-6 items-center justify-center rounded border border-gray-200 bg-gray-50 transition-all aria-checked:border-pink-300 aria-checked:bg-pink-300"
       >
         <RadixCheckbox.Indicator>
