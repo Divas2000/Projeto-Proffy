@@ -9,6 +9,9 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${archivo.variable} ${poppins.variable}`}>
       <body className=" bg-purple-600">{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
