@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    backgroundColor: "bg-pink-300",
+    backgroundColor: "pink",
     label: "Dar aulas",
     onClick: Function,
     Icon: Airplay,
@@ -31,7 +31,7 @@ export const Primary: Story = {
 };
 export const Secondary: Story = {
   args: {
-    backgroundColor: "bg-purple-500",
+    backgroundColor: "purple",
     label: "Estudar",
     onClick: Function,
     Icon: BookOpen,

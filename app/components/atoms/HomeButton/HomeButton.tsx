@@ -4,18 +4,23 @@ interface HomeButtonProps {
   /**
    * What background color to use
    */
-  backgroundColor: "bg-pink-300" | "bg-purple-500";
+  backgroundColor: "pink" | "purple";
   /** icon*/
   Icon: LucideIcon;
   /**
    * Button contents
    */
-  label: string;
+  label: "Estudar" | "Dar aulas";
   /**
    * click handler
    */
   onClick: () => void;
 }
+
+const buttonColor = {
+  pink: "bg-pink-300",
+  purple: "bg-purple-500",
+};
 
 export const HomeButton = ({
   backgroundColor,
@@ -25,7 +30,7 @@ export const HomeButton = ({
 }: HomeButtonProps) => {
   return (
     <button
-      className={`w-[220px] ${backgroundColor} flex justify-center gap-6 rounded-lg px-10 py-6 font-semibold text-white shadow-sm`}
+      className={`w-[220px] ${buttonColor[backgroundColor]} hover:bg-${backgroundColor}-600 flex justify-center gap-6 rounded-lg px-10 py-6 font-semibold text-white shadow-sm`}
       onClick={onClick}
       aria-label={`Clique em ${label}`}
     >
