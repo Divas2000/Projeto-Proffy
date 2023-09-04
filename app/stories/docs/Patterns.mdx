@@ -1,0 +1,89 @@
+<div align="center">
+  <img src="proffy.svg" alt="Proffy" class="w-52" />
+  <p>
+    Documentação voltada às práticas utilizadas no desenvolvimento da aplicação
+    Proffy, site com ênfase em busca e divulgação de professores particulares.
+  </p>
+</div>
+
+## 📌 **Padrões Adotados**
+
+### Componentes
+
+Os componentes, inspirados no *Atomic Design*, serão divididos em três pastas: 
+
+- `atoms`: são as menores porções de uma página, como componentes de botões,
+inputs, textos etc;
+- `molecules`: são pequenos elementos formados por átomos, ou seja, por elementos 
+indivisíveis, como um campo de email com sua label e um botão de enviar;
+- `organisms`: são elementos mais complexos formados por moléculas, como 
+formulários, cards etc;
+
+Então, a estrutura final será:
+
+```bash
+└── components
+    ├── atoms
+    ├── molecules
+    └── organisms
+```
+
+#### **Estrutura da pasta de um Componente**
+
+Um componente, independente da sua complexidade, será composto por três arquivos
+principais, um para o próprio componente, outro para testes e um para a 
+documentação no Storybook:
+
+```bash
+└── MyComponent
+    ├── MyComponent.stories.tsx
+    ├── MyComponent.test.tsx
+    └── MyComponent.tsx
+```
+
+#### **Criação de Componente**
+
+```ts
+interface HeaderProps {
+  /** clear description for documentation */
+  propExample: string;
+}
+
+export const Header = ({ propExample }: HeaderProps) => {
+  return (
+    <>
+      <h1>Header {propExample}</h1>
+    </>
+  );
+};
+```
+
+### Event Handlers
+
+Os *Event Handlers* terão duas principais notações:
+
+- `handle<action>`: são as funções que, além de lidar com o evento, lidam com
+outras ações, como a função `handleSubmitForm`, que além de fazer o submit, irá 
+validar os campos necessários;
+
+- `on<action>`: são as funções que terão uma única responsabilidade, por 
+exemplo, a função `onChangeTheme` apenas troca o tema da aplicação em um evento
+de clique;
+
+### Testes Unitários
+
+```js
+describe('MyComponent', () => {
+  test('clear description of the test', () => {
+    //assertions
+  });
+});
+```
+
+## 🗂️ **Documentações Adicionais**
+
+- [Next 13](https://nextjs.org/docs)
+- [Tailwind](https://tailwindcss.com/)
+- [Resumo do Next 13](https://github.com/ananuness/next-demo)
+- [Resumo do Tailwind](https://star-fork-7cd.notion.site/Tailwind-CSS-5f84548bddd44e30bbbb9c509b8687ad?pvs=4)
+
