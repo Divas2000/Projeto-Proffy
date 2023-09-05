@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import "@/app/globals.css";
 
+import { Airplay, BookOpen } from "lucide-react";
 import { HomeButton } from "./HomeButton";
-import { Airplay } from "lucide-react";
-import { BookOpen } from "lucide-react";
 
 const meta = {
-  title: "Example/Button",
+  title: "Components/Atoms/HomeButton",
   component: HomeButton,
   parameters: {
     layout: "centered",
@@ -14,7 +12,13 @@ const meta = {
 
   tags: ["autodocs"],
   argTypes: {
-    backgroundColor: { control: "color" },
+    backgroundColor: { 
+      options: ["bg-pink-300", "bg-purple-500"],
+      control: "select"
+    },
+    Icon: {
+      control: false
+    },
   },
 } satisfies Meta<typeof HomeButton>;
 

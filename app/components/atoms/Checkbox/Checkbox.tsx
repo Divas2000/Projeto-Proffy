@@ -8,7 +8,7 @@ interface CheckboxProps {
   label: string;
 }
 
-export function Checkbox({ id, label }: CheckboxProps) {
+export const Checkbox = ({ id, label }: CheckboxProps) => {
   return (
     <div className="flex gap-4">
       <RadixCheckbox.Root
@@ -26,4 +26,4 @@ export function Checkbox({ id, label }: CheckboxProps) {
       </label>
     </div>
   );
-}
+};

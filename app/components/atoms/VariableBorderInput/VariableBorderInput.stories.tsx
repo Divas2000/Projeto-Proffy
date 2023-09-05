@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Eye } from "lucide-react";
 import { VariableBorderInput } from "./VariableBorderInput";
-import "@/app/globals.css";
 
 const meta = {
-  title: "Example/VariableBorderInput",
+  title: "Components/Atoms/VariableBorderInput",
   component: VariableBorderInput,
   parameters: {
     layout: "centered",
