@@ -13,6 +13,9 @@
       "@/app/*": [
         "app/*"
       ],
+      "@/components": [
+        "app/components"
+      ],
       "@/atoms/*": [
         "app/components/atoms/*"
       ],
