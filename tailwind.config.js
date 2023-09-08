@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         archivo: ["var(--font-archivo)"],
-        poppins: ["var(--font-poppins)"],
+        poppins: ["Poppins", "sans-serif"],
       },
       fontSize: {
         lg: ["1.25rem", "1.75rem"],
@@ -51,9 +51,9 @@ module.exports = {
         },
         pink: {
           300: "#E966A0",
-          400: "#E6469B",
-          500: "#E6468B",
-          600: "#E6467B",
+          400: "#E6468B",
+          500: "#E52576",
+          600: "#D32372",
         },
         red: {
           400: "#E14C4C",
