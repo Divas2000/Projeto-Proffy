@@ -1,4 +1,4 @@
-import { archivo, poppins } from "./fonts";
+import { archivo } from "./fonts";
 import "./globals.css";
 
 export default async function RootLayout({
@@ -7,11 +7,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${archivo.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${archivo.variable}`}>
       <body className=" bg-purple-600">{children}</body>
-      <body>
-        {children}
-      </body>
     </html>
   );
 }
