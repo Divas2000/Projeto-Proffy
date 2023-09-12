@@ -64,7 +64,7 @@ export const VariableBorderInput = ({
       {Icon && (
         <Icon
           color="#B0ABBC"
-          aria-label="Ícone"
+          role="img"
           onClick={iconOnClick}
           className={`absolute right-[25px] top-6 ${
             iconOnClick && "cursor-pointer"

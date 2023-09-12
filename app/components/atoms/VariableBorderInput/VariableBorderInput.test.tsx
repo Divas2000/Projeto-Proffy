@@ -16,7 +16,7 @@ describe("VariableBorderInput Component", () => {
   test("render the icon for input with icon", () => {
     render(<WithIcon />);
 
-    const icon = screen.getByLabelText(/ícone/i);
+    const icon = screen.getByRole("img");
 
     expect(icon).toBeInTheDocument();
   });
