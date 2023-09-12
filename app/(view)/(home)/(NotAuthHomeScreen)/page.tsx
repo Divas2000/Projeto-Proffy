@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import HomeLogo from "@/app/utils/shared/assets/home_logo.svg";
-import HomeImage from "@/app/utils/shared/assets/home_image.svg";
+import HomeLogo from "@/assets/home_logo.svg";
+import HomeImage from "@/assets/home_image.svg";
 import { Airplay } from "lucide-react";
 import { BookOpen } from "lucide-react";
 import { HomeButton } from "@/app/components";
@@ -16,7 +16,7 @@ export const NotAuthHomeScreen = () => {
     router.push("/login");
   };
   return (
-    <div className="mx-32 flex h-screen flex-col justify-center">
+    <div className="flex h-screen flex-col justify-center bg-purple-500 px-32">
       <main className="flex gap-20">
         <section>
           <Image src={HomeLogo} alt="logo da home" width={434} height={127} />
@@ -51,7 +51,7 @@ export const NotAuthHomeScreen = () => {
           />
         </div>
         <div className="flex w-[350px] items-center justify-end">
-          <span className="text-sm/[12px] text-purple-100">
+          <span className="font-poppins text-sm text-purple-100">
             Total de 285 conexões já realizadas 💜
           </span>
         </div>

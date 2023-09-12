@@ -12,12 +12,12 @@ const meta = {
 
   tags: ["autodocs"],
   argTypes: {
-    backgroundColor: { 
-      options: ["bg-pink-300", "bg-purple-500"],
-      control: "select"
+    backgroundColor: {
+      options: ["pink", "purple"],
+      control: "select",
     },
     Icon: {
-      control: false
+      control: false,
     },
   },
 } satisfies Meta<typeof HomeButton>;

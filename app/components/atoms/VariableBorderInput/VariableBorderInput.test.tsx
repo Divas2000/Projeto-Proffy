@@ -8,24 +8,40 @@ describe("VariableBorderInput Component", () => {
   test("render the correct label for input with icon", () => {
     render(<WithIcon />);
 
-    const inputLabel = screen.getByLabelText(/senha/i);
+    const label = screen.getByLabelText(/senha/i);
 
-    expect(inputLabel).toBeInTheDocument();
+    expect(label).toBeInTheDocument();
   });
 
   test("render the icon for input with icon", () => {
     render(<WithIcon />);
 
-    const iconLabel = screen.getByLabelText(/ícone/i);
+    const icon = screen.getByLabelText(/ícone/i);
 
-    expect(iconLabel).toBeInTheDocument();
+    expect(icon).toBeInTheDocument();
+  });
+
+  test("render the input with icon", () => {
+    render(<WithIcon />);
+
+    const inputWithIcon = screen.getByPlaceholderText(/senha/i);
+
+    expect(inputWithIcon).toBeInTheDocument();
   });
 
   test("render the correct label for input without icon", () => {
     render(<WithoutIcon />);
 
-    const inputLabel = screen.getByLabelText(/e-mail/i);
+    const label = screen.getByLabelText(/e-mail/i);
 
-    expect(inputLabel).toBeInTheDocument();
+    expect(label).toBeInTheDocument();
+  });
+
+  test("render the input without icon", () => {
+    render(<WithoutIcon />);
+
+    const input = screen.getByPlaceholderText(/e-mail/i);
+
+    expect(input).toBeInTheDocument();
   });
 });

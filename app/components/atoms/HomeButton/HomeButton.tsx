@@ -17,9 +17,15 @@ interface HomeButtonProps {
   onClick: () => void;
 }
 
-const buttonColor = {
-  pink: "bg-pink-300",
-  purple: "bg-purple-500",
+const style = {
+  pink: {
+    default: "bg-pink-300",
+    hover: "hover:bg-pink-400",
+  },
+  purple: {
+    default: "bg-purple-400",
+    hover: "hover:bg-purple-600",
+  },
 };
 
 export const HomeButton = ({
@@ -30,7 +36,7 @@ export const HomeButton = ({
 }: HomeButtonProps) => {
   return (
     <button
-      className={`w-[220px] ${buttonColor[backgroundColor]} hover:bg-${backgroundColor}-600 flex justify-center gap-6 rounded-lg px-10 py-6 font-semibold text-white shadow-sm`}
+      className={`flex w-[220px] justify-center gap-6 rounded-lg px-10 py-6 font-archivo font-bold text-white shadow-sm transition-all ${style[backgroundColor].default} ${style[backgroundColor].hover} hover:shadow-none`}
       onClick={onClick}
       aria-label={`Clique em ${label}`}
     >
