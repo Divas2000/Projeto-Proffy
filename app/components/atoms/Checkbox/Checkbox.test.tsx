@@ -1,8 +1,8 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { composeStories } from "@storybook/react";
-import * as Stories from "./Checkbox.stories";
+import { composeStory } from "@storybook/react";
+import meta, { Default as DefaultStory } from "./Checkbox.stories";
 
-const { Default: Checkbox } = composeStories(Stories);
+const Checkbox = composeStory(DefaultStory, meta);
 
 describe("Checkbox Component", () => {
   test("render the checkbox", () => {

@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { composeStories } from "@storybook/react";
-import * as Stories from "./Textarea.stories";
+import { composeStory } from "@storybook/react";
+import meta, { Default as DefaultStory } from "./Textarea.stories";
 
-const { Default: Textarea } = composeStories(Stories);
+const Textarea = composeStory(DefaultStory, meta);
 
 describe("Textarea Component", () => {
   test("render the textarea element", () => {
