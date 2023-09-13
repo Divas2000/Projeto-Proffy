@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { composeStories } from "@storybook/react";
 import { render, screen } from "@testing-library/react";
 import * as Stories from "./Button.stories";
@@ -5,33 +6,29 @@ import * as Stories from "./Button.stories";
 const { Default, Medium, Large, Disabled, WithIcon } = composeStories(Stories);
 
 describe("Button Component", () => {
-  test("render all buttons variants", () => {
-    render(
-      <>
-        <Default />
-        <Medium />
-        <Large />
-        <Disabled />
-        <WithIcon />
-      </>,
-    );
+  test.each([
+    ["Default", <Default />],
+    ["Medium", <Medium />],
+    ["Large", <Large />],
+    ["Disabled", <Disabled />],
+    ["WithIcon", <WithIcon />],
+  ])("render %s button variant", (_, element) => {
+    render(element);
 
-    const buttons = screen.getAllByRole("button");
+    const button = screen.getByRole("button");
 
-    buttons.forEach((button) => {
-      expect(button).toBeInTheDocument();
-    });
+    expect(button).toBeInTheDocument();
   });
 
-  test("expect button to be disabled", () => {
+  test("expect Button to be disabled", () => {
     render(<Disabled />);
 
-    const button = screen.getByText(/entrar/i);
+    const button = screen.getByRole("button", { name: /entrar/i });
 
     expect(button).toBeDisabled();
   });
 
-  test("expect button to have an icon", () => {
+  test("expect Button to have an icon", () => {
     render(<WithIcon />);
 
     const icon = screen.getByRole("img");
