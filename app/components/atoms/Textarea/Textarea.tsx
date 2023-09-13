@@ -12,11 +12,18 @@ interface TextareaProps extends ComponentProps<"textarea"> {
   height?: number;
 }
 
-export const Textarea = ({ id, label, helperLabel, height }: TextareaProps) => {
+export const Textarea = ({
+  id,
+  label,
+  helperLabel,
+  height,
+  ...props
+}: TextareaProps) => {
   return (
     <>
       <Label htmlFor={id} title={label} helperLabel={helperLabel} />
       <textarea
+        {...props}
         id={id}
         placeholder={label}
         style={{ height: height ? `${height}px` : "fit-content" }}
