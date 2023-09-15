@@ -6,14 +6,12 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/app/*": ["app/*"],
       "@/components": ["app/components"],
-      "@/atoms/*": ["app/components/atoms/*"],
-      "@/molecules/*": ["app/components/molecules/*"],
-      "@/organisms/*": ["app/components/organisms/*"],
+      "@/clientComponents": ["app/components/clientComponents"],
       "@/assets/*": ["app/shared/assets/*"],
       "@/fonts": ["app/shared/fonts"],
-      "@/utils/*": ["app/shared/utils/*"]
+      "@/utils": ["app/shared/utils"],
+      "@/app/*": ["app/*"]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
