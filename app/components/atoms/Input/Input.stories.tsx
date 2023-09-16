@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
+  currencyMask,
   onlyLettersMask,
   onlyNumbersMask,
   phoneMask,
@@ -64,5 +65,13 @@ export const TimeInput: Story = {
     id: "hour-end",
     label: "Até",
     mask: timeMask,
+  },
+};
+
+export const CurrencyInput: Story = {
+  args: {
+    id: "price",
+    label: "Preço",
+    mask: currencyMask,
   },
 };
