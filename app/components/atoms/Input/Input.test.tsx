@@ -10,6 +10,7 @@ const {
   OnlyNumbersInput,
   PhoneInput,
   TimeInput,
+  CurrencyInput,
 } = composeStories(Stories);
 
 describe("Input Component", () => {
@@ -20,6 +21,7 @@ describe("Input Component", () => {
     ["OnlyNumbersInput", <OnlyNumbersInput />],
     ["PhoneInput", <PhoneInput />],
     ["TimeInput", <TimeInput />],
+    ["CurrencyInput", <CurrencyInput />],
   ])("render %s variant", (_, element) => {
     render(element);
 
@@ -32,10 +34,14 @@ describe("Input Component", () => {
     ["WithOnlyNumbersInput", <OnlyNumbersInput />],
     ["WithPhoneInput", <PhoneInput />],
     ["WithTimeInput", <TimeInput />],
-  ])("it should allow only numbers in the %s variant", (_, element) => {
+    ["CurrencyInput", <CurrencyInput />],
+  ])("it should allow only numbers in the %s variant", (variant, element) => {
     render(element);
 
-    const input = screen.getByLabelText(/whatsapp|até/i) as HTMLInputElement;
+    const input = screen.getByLabelText(
+      /whatsapp|até|preço/i,
+    ) as HTMLInputElement;
+
     const value = `
       The quick brown fox jumps over the lazy dog
       !@#$%^&()_+{}[]|:;<>,\\.?/~\`'"-=
@@ -45,7 +51,11 @@ describe("Input Component", () => {
 
     fireEvent.input(input, { target: { value } });
 
-    expect(input.value).toBe("");
+    if (variant.includes("Currency")) {
+      expect(input.value).toBe("R$ ");
+    } else {
+      expect(input.value).toBe("");
+    }
   });
 
   test("it should format the phone number correctly in the phoneMask input", () => {
@@ -70,6 +80,18 @@ describe("Input Component", () => {
     fireEvent.input(input, { target: { value: "1230" } });
 
     expect(input.value).toBe("12:30");
+  });
+
+  test("it should format the currency correctly in the currencyMask input", () => {
+    render(<CurrencyInput />);
+
+    const input = screen.getByLabelText(/preço/i) as HTMLInputElement;
+
+    expect(input.value).toBe("");
+
+    fireEvent.input(input, { target: { value: "35869" } });
+
+    expect(input.value).toBe("R$ 358,69");
   });
 
   test("it should allow only letters in the onlyLettersMask input", () => {
