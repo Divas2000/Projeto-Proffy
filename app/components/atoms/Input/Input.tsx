@@ -11,9 +11,9 @@ interface InputProps extends ComponentProps<"input"> {
   helperLabel?: string;
   /** An optional input mask to modify the input value. */
   mask?: (value: string) => string;
-  /** 
+  /**
    * An optional `width` size.
-   * 
+   *
    * `xs = 128px` | `sm = 192px` | `md = 224px`
    * | `lg = 288px` | `xl = 384px`
    *
@@ -36,6 +36,7 @@ export const Input = ({
   helperLabel,
   mask,
   width = "sm",
+  ...props
 }: InputProps) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -53,6 +54,7 @@ export const Input = ({
     <div className={`${style[width]}`}>
       <Label htmlFor={id} title={label} helperLabel={helperLabel} />
       <input
+        {...props}
         id={id}
         type="text"
         value={inputValue}
