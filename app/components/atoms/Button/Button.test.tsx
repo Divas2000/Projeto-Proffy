@@ -15,7 +15,7 @@ describe("Button Component", () => {
   ])("render %s button variant", (_, element) => {
     render(element);
 
-    const button = screen.getByRole("button");
+    const button = screen.getByRole("button", { name: element.props.label });
 
     expect(button).toBeInTheDocument();
   });
