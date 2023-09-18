@@ -30,26 +30,25 @@ describe("Select Component", () => {
     expect(select).toBeInTheDocument();
   });
 
-  test("render select options when clicked", async () => {
-    const user = userEvent.setup();
+  test.each([Select.args.options!])(
+    "render select options when clicked",
+    async (optionName) => {
+      const user = userEvent.setup();
 
-    render(<Select />);
+      render(<Select />);
 
-    const select = screen.getByRole("combobox", { name: /dias da semana/i });
+      const select = screen.getByRole("combobox", { name: /dias da semana/i });
 
-    await user.click(select);
+      await user.click(select);
 
-    const options = screen.getAllByRole("option") as HTMLOptionElement[];
+      const options = screen.getAllByRole("option") as HTMLOptionElement[];
 
-    expect(options).toHaveLength(7);
-    expect(screen.getByRole("option", { name: "Domingo" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Segunda" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Terça" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Quarta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Quinta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Sexta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Sábado" })).toBeInTheDocument();
-  });
+      expect(options).toHaveLength(7);
+      expect(
+        screen.getByRole("option", { name: optionName }),
+      ).toBeInTheDocument();
+    },
+  );
 
   test("call onValueChange when an option is clicked", async () => {
     const user = userEvent.setup();
@@ -69,26 +68,25 @@ describe("Select Component", () => {
     expect(mockOnValueChange).toHaveBeenCalledWith("Sexta");
   });
 
-  test("render select options in enter keydown", async () => {
-    const user = userEvent.setup();
+  test.each([Select.args.options!])(
+    "render select options on enter keydown",
+    async (optionName) => {
+      const user = userEvent.setup();
 
-    render(<Select />);
+      render(<Select />);
 
-    await user.keyboard("{Tab}{Enter}");
+      await user.keyboard("{Tab}{Enter}");
 
-    const options = screen.getAllByRole("option") as HTMLOptionElement[];
+      const options = screen.getAllByRole("option") as HTMLOptionElement[];
 
-    expect(options).toHaveLength(7);
-    expect(screen.getByRole("option", { name: "Domingo" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Segunda" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Terça" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Quarta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Quinta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Sexta" })).toBeInTheDocument();
-    expect(screen.getByRole("option", { name: "Sábado" })).toBeInTheDocument();
-  });
+      expect(options).toHaveLength(7);
+      expect(
+        screen.getByRole("option", { name: optionName }),
+      ).toBeInTheDocument();
+    },
+  );
 
-  test("call onValueChange in enter keydown on a option", async () => {
+  test("call onValueChange on enter keydown on a option", async () => {
     const user = userEvent.setup();
 
     render(<Select onValueChange={mockOnValueChange} />);
