@@ -1,19 +1,18 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // jest.config.js
-const nextJest = require('next/jest');
+const nextJest = require("next/jest");
 
-const createJestConfig = nextJest({
-  dir: './'
-});
+const createJestConfig = nextJest({ dir: "./" });
 
 const customJestConfig = {
-  setupFilesAfterEnv: ['./jest.setup.js'], //(set up the testing framework before each test file in the suite is executed.)
-  testEnvironment: 'jest-environment-jsdom',
-  testPathIgnorePatterns: ['/node_modules/', '/.next/'],
+  // set up the testing framework before each test file in the suite is executed.
+  setupFilesAfterEnv: ["./jest.setup.ts"],
+  testEnvironment: "jest-environment-jsdom",
+  testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   collectCoverage: true,
-  modulePaths: ['<rootDir>/src/'],
+  modulePaths: ["<rootDir>/app/"],
   collectCoverageFrom: [
-    './components/**/*.ts(x)?'
+    "app/**/*.ts(x)?"
   ]
 };
 
