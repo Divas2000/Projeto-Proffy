@@ -31,6 +31,12 @@ module.exports = {
       boxShadow: {
         sm: "0px 4px 4px rgba(0, 0, 0, .25)",
       },
+      width: {
+        "radix-select": "var(--radix-select-trigger-width)",
+      },
+      maxHeight: {
+        "radix-select": "var(--radix-select-content-available-height)",
+      },
       colors: {
         white: "#FFFFFF",
         gray: {
