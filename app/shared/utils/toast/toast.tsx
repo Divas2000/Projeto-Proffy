@@ -1,10 +1,18 @@
 import { toast as hotToast } from "react-hot-toast";
 
 interface ToastProps {
+  /** A title to the toast element. */
   title?: string;
+  /** A description to the toast element. */
   description?: string;
 }
 
+/**
+ * Generates a toast whenever it is called.
+ *
+ * @param toastObject receives two optional params: `title` and
+ * `description`, to provide toast content.
+ */
 export const toast = ({ title, description }: ToastProps) => {
   hotToast(
     <div
