@@ -8,6 +8,7 @@
     "paths": {
       "@/components": ["app/components"],
       "@/clientComponents": ["app/components/clientComponents"],
+      "@/atoms/*": ["app/components/atoms/*"],
       "@/assets/*": ["app/shared/assets/*"],
       "@/fonts": ["app/shared/fonts"],
       "@/utils": ["app/shared/utils"],
