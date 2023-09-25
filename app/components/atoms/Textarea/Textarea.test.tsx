@@ -20,4 +20,20 @@ describe("Textarea Component", () => {
 
     expect(textareaLabel).toBeInTheDocument();
   });
+
+  test("textarea height should have value fit-content if not informed", () => {
+    render(<Textarea />);
+
+    const textarea = screen.getByPlaceholderText(/biografia/i);
+
+    expect(textarea).toHaveStyle("height: fit-content");
+  });
+
+  test("textarea height should be in pixels if a number is informed", () => {
+    render(<Textarea height={168} />);
+
+    const textarea = screen.getByPlaceholderText(/biografia/i);
+
+    expect(textarea).toHaveStyle("height: 168px");
+  });
 });
