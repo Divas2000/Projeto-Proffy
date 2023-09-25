@@ -107,4 +107,18 @@ describe("Input Component", () => {
 
     expect(input.value).toBe("John Doe");
   });
+
+  test("if no mask is provided, the input must return the same value", () => {
+    render(<Default />);
+
+    const input = screen.getByRole("textbox") as HTMLInputElement;
+
+    expect(input.value).toBe("");
+
+    fireEvent.input(input, {
+      target: { value: "John Doe123#" },
+    });
+
+    expect(input.value).toBe("John Doe123#");
+  });
 });

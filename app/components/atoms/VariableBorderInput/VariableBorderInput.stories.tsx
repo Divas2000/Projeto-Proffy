@@ -30,12 +30,18 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    id: "name",
+    placeholder: "Nome",
+  },
+};
+
 export const WithoutIcon: Story = {
   args: {
     id: "email",
     type: "email",
     placeholder: "E-mail",
-    border: "all",
   },
 };
 
@@ -44,7 +50,6 @@ export const WithIcon: Story = {
     id: "password",
     type: "password",
     placeholder: "Senha",
-    border: "all",
     Icon: Eye,
     iconOnClick: Function,
   },
