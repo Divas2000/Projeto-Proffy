@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import HomeLogo from "@/assets/home_logo.svg";
+import HomeLogo from "@/assets/proffy_logo.svg";
 import HomeImage from "@/assets/home_image.svg";
 import { Airplay } from "lucide-react";
 import { BookOpen } from "lucide-react";
