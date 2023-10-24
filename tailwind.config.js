@@ -37,6 +37,9 @@ module.exports = {
       maxHeight: {
         "radix-select": "var(--radix-select-content-available-height)",
       },
+      screens: {
+        md: "876px"
+      },
       colors: {
         white: "#FFFFFF",
         gray: {
