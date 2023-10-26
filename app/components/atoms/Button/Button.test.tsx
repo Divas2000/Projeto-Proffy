@@ -3,7 +3,8 @@ import { composeStories } from "@storybook/react";
 import { render, screen } from "@testing-library/react";
 import * as Stories from "./Button.stories";
 
-const { Default, Medium, Large, Disabled, WithIcon } = composeStories(Stories);
+const { Default, Medium, Large, Disabled, Loading, WithIcon } =
+  composeStories(Stories);
 
 describe("Button Component", () => {
   test.each([
@@ -11,6 +12,7 @@ describe("Button Component", () => {
     ["Medium", <Medium />],
     ["Large", <Large />],
     ["Disabled", <Disabled />],
+    ["Loading", <Loading />],
     ["WithIcon", <WithIcon />],
   ])("render %s button variant", (_, element) => {
     render(element);
@@ -26,6 +28,16 @@ describe("Button Component", () => {
     const button = screen.getByRole("button", { name: /entrar/i });
 
     expect(button).toBeDisabled();
+  });
+
+  test("expect Button to be disabled and loading with spinner icon", () => {
+    render(<Loading />);
+
+    const button = screen.getByRole("button", { name: /entrar/i });
+    const spinner = screen.getByRole("status");
+
+    expect(button).toBeDisabled();
+    expect(button).toContainElement(spinner);
   });
 
   test("expect Button to have an icon", () => {
