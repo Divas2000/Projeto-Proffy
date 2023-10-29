@@ -1,23 +1,22 @@
 import Image from "next/image";
-import bgPattern from "@/assets/bg_pattern.svg";
 import logo from "@/assets/proffy_logo.svg";
+import bgPattern from "@/assets/bg_pattern.svg";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = async ({ children }: LayoutProps) => {
+export default async function Layout({ children }: LayoutProps) {
   return (
-    <main className="flex w-full">
-      {children}
-
-      <div className="relative flex h-screen w-1/2 items-center justify-center bg-purple-500">
+    <main className="flex min-h-screen w-full bg-gray-100 md:h-screen md:overflow-hidden">
+      <div className="relative hidden h-screen w-1/2 items-center justify-center bg-purple-500 md:flex">
         <Image
           src={bgPattern}
           alt=""
           role="presentation"
           className="h-[90%] w-full"
         />
+
         <div className="absolute left-1/2 top-1/2 max-w-sm -translate-x-1/2 -translate-y-1/2">
           <Image src={logo} alt="Proffy" className="h-24 w-[334px]" />
 
@@ -26,8 +25,8 @@ const Layout = async ({ children }: LayoutProps) => {
           </p>
         </div>
       </div>
+
+      {children}
     </main>
   );
-};
-
-export default Layout;
+}
