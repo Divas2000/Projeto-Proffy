@@ -27,7 +27,7 @@ export const toast = ({ title, description }: ToastProps) => {
       </div>
     </div>,
     {
-      duration: 4000,
+      duration: 3000,
       position: "top-right",
       ariaProps: {
         role: "alert",
