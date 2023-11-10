@@ -18,7 +18,7 @@ describe("Toast Utils", () => {
 
     expect(hotToastMock).toHaveBeenCalledTimes(1);
     expect(hotToastMock).toHaveBeenCalledWith(expect.anything(), {
-      duration: 4000,
+      duration: 3000,
       position: "top-right",
       ariaProps: {
         role: "alert",
