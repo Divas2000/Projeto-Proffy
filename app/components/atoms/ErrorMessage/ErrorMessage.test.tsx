@@ -8,9 +8,9 @@ describe("ErrorMessage Component", () => {
   test("render error message correctly", () => {
     render(<ErrorMessage />);
 
-    const loading = screen.getByRole("alert");
+    const message = screen.getByRole("alert");
 
-    expect(loading).toBeInTheDocument();
-    expect(loading).toHaveTextContent("E-mail é obrigatório");
+    expect(message).toBeInTheDocument();
+    expect(message).toHaveTextContent("E-mail é obrigatório");
   });
 });

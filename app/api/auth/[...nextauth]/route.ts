@@ -3,10 +3,6 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-// type CustomUser = DefaultUser & {
-//   lastName?: string;
-// }
-
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -24,7 +20,7 @@ export const authOptions: NextAuthOptions = {
           placeholder: "Your password",
         },
       },
-      async authorize(credentials) /*: Promise<CustomUser | null>*/ {
+      async authorize(credentials) {
         const response = await fetch("/your/endpoint", {
           method: "POST",
           headers: {
