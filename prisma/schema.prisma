@@ -3,14 +3,61 @@ generator client {
 }
 
 datasource db {
-  provider          = "mongodb"
-  url               = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum WeekDays {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  lastName      String
-  email         String   @unique
-  password      String
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String     @db.String
+  lastName  String     @db.String
+  email     String     @unique
+  password  String     @db.String
+  image     String?    @db.String
+  professor Professor?
+
+  @@map("users")
+}
+
+model Professor {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @unique @map("user_id") @db.ObjectId
+  whatsapp    String   @unique @db.String
+  biography   String   @unique @db.String
+  subjectId   String   @unique @map("subject_id") @db.ObjectId
+  scheduleIDs String[] @db.ObjectId
+
+  user      User       @relation(fields: [userId], references: [id])
+  subject   Subject    @relation(fields: [subjectId], references: [id])
+  schedules Schedule[] @relation(fields: [scheduleIDs], references: [id])
+
+  @@map("professors")
+}
+
+model Subject {
+  id        String      @id @default(auto()) @map("_id") @db.ObjectId
+  name      String      @unique @db.String
+  professor Professor[]
+
+  @@map("subjects")
+}
+
+model Schedule {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  dayOfWeek    WeekDays
+  startTime    String   @db.String
+  endTime      String   @db.String
+  professorIDs String[] @db.ObjectId
+
+  professors Professor[] @relation(fields: [professorIDs], references: [id])
+
+  @@map("schedules")
 }

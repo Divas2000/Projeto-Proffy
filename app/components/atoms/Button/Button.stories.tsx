@@ -55,6 +55,14 @@ export const Disabled: Story = {
   },
 };
 
+export const Loading: Story = {
+  args: {
+    label: "Entrar",
+    size: "lg",
+    isLoading: true,
+  },
+};
+
 export const WithIcon: Story = {
   args: {
     label: "Editar",

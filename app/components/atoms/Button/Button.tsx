@@ -1,5 +1,7 @@
-import { LucideIcon } from "lucide-react";
 import { ComponentProps } from "react";
+import { LucideIcon } from "lucide-react";
+import { Spinner } from "@/components";
+import { cn } from "@/utils";
 
 interface ButtonProps extends ComponentProps<"button"> {
   /**
@@ -16,6 +18,16 @@ interface ButtonProps extends ComponentProps<"button"> {
    * If not informed, the default value is `sm`.
    */
   size?: "sm" | "md" | "lg";
+  /**
+   * An addional state to add an unique loading
+   * style.
+   */
+  isLoading?: boolean;
+  /**
+   * An option to add more styles using
+   * Tailwind utility classes.
+   */
+  className?: string;
 }
 
 const width = {
@@ -24,15 +36,28 @@ const width = {
   lg: "w-[352px]",
 };
 
-export const Button = ({ label, Icon, size = "sm", ...props }: ButtonProps) => {
+export const Button = ({
+  label,
+  Icon,
+  size = "sm",
+  isLoading,
+  disabled,
+  className,
+  ...props
+}: ButtonProps) => {
   return (
     <button
       {...props}
       aria-label={`Clique em ${label}`}
-      className={`${width[size]} font-base flex justify-center gap-4 rounded border-none bg-pink-300 py-4 font-archivo font-semibold text-white outline-none transition-all hover:bg-pink-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400`}
+      disabled={disabled || isLoading}
+      className={cn(
+        "font-base flex justify-center gap-4 rounded border-none bg-pink-300 py-4 font-archivo font-semibold text-white outline-none transition-all hover:bg-pink-400 disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-400",
+        width[size],
+        className,
+      )}
     >
-      {Icon && <Icon size={24} role="img" />}
-      {label}
+      {Icon && !isLoading && <Icon size={24} role="img" />}
+      {isLoading ? <Spinner /> : label}
     </button>
   );
 };

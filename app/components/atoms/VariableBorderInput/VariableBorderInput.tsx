@@ -1,5 +1,6 @@
-import { ComponentProps } from "react";
+import { ComponentProps, forwardRef } from "react";
 import { LucideIcon } from "lucide-react";
+import { cn } from "@/utils";
 
 interface VariableBorderInputProps extends ComponentProps<"input"> {
   /** Input id. */
@@ -35,23 +36,33 @@ const borderStyle = {
   all: "rounded",
 };
 
-export const VariableBorderInput = ({
-  id,
-  type = "text",
-  placeholder,
-  border = "all",
-  Icon,
-  iconOnClick,
-  ...props
-}: VariableBorderInputProps) => {
+export const VariableBorderInput = forwardRef<
+  HTMLInputElement,
+  VariableBorderInputProps
+>(function VariableBorderInput(
+  {
+    id,
+    type = "text",
+    placeholder,
+    border = "all",
+    Icon,
+    iconOnClick,
+    ...props
+  },
+  ref,
+) {
   return (
     <div className="relative w-fit before:absolute before:left-[-.5px] before:top-3 before:z-10 before:h-[48px] before:w-[2px] before:rounded before:content-[''] focus-within:before:bg-pink-500">
       <input
         {...props}
         id={id}
+        ref={ref}
         type={type}
         placeholder={placeholder}
-        className={`h-[72px] px-6 pt-5 ${borderStyle[border]} peer border border-gray-200 bg-gray-50 font-poppins text-gray-600 placeholder:opacity-0 placeholder-shown:pt-0 focus-visible:outline-none`}
+        className={cn(
+          "h-[72px] w-[352px] px-6 pt-5 peer border border-gray-200 bg-gray-50 font-poppins text-gray-600 placeholder:opacity-0 placeholder-shown:pt-0 focus-visible:outline-none",
+          borderStyle[border]
+        )}
       />
 
       <label
@@ -73,4 +84,4 @@ export const VariableBorderInput = ({
       )}
     </div>
   );
-};
+});

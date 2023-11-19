@@ -1,20 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import HomeLogo from "@/assets/proffy_logo.svg";
-import HomeImage from "@/assets/home_image.svg";
+import { useRouter } from "next/navigation";
 import { Airplay } from "lucide-react";
 import { BookOpen } from "lucide-react";
 import { HomeButton } from "@/app/components";
-import { useRouter } from "next/navigation";
+import HomeLogo from "@/assets/proffy_logo.svg";
+import HomeImage from "@/assets/home_image.svg";
 
-export const NotAuthHomeScreen = () => {
+export default function HomeScreen() {
   const router = useRouter();
 
-  const onClickButton = () => {
-    //TODO futura rota de login aqui
-    router.push("/login");
-  };
+  const onClickButton = () => router.push("/login");
+
   return (
     <div className="flex h-screen flex-col justify-center bg-purple-500 px-32">
       <main className="flex gap-20">
@@ -58,6 +56,4 @@ export const NotAuthHomeScreen = () => {
       </footer>
     </div>
   );
-};
-
-export default NotAuthHomeScreen;
+}

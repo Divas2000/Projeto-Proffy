@@ -1,36 +1,22 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/components": [
-        "app/components"
-      ],
-      "@/clientComponents": [
-        "app/components/clientComponents"
-      ],
-      "@/atoms/*": [
-        "app/components/atoms/*"
-      ],
-      "@/assets/*": [
-        "app/shared/assets/*"
-      ],
-      "@/fonts": [
-        "app/shared/fonts"
-      ],
-      "@/utils": [
-        "app/shared/utils"
-      ],
-      "@/app/*": [
-        "app/*"
-      ]
+      "@/register/*": ["app/(view)/(auth)/register/*"],
+      "@/prismaClient/*": ["app/api/prismaClient/*"],
+      "@/apiRegister/*": ["app/api/register/*"],
+      "@/components": ["app/components"],
+      "@/clientComponents": ["app/components/clientComponents"],
+      "@/atoms/*": ["app/components/atoms/*"],
+      "@/assets/*": ["app/shared/assets/*"],
+      "@/fonts": ["app/shared/fonts"],
+      "@/utils": ["app/shared/utils"],
+      "@/helpers/*": ["app/shared/helpers/*"],
+      "@/app/*": ["app/*"]
     },
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -48,13 +34,6 @@
       }
     ]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
