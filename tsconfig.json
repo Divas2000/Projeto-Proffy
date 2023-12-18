@@ -7,15 +7,17 @@
     "baseUrl": ".",
     "paths": {
       "@/register/*": ["app/(view)/(auth)/register/*"],
-      "@/prismaClient/*": ["app/api/prismaClient/*"],
-      "@/apiRegister/*": ["app/api/register/*"],
-      "@/components": ["app/components"],
-      "@/clientComponents": ["app/components/clientComponents"],
+      "@/login/*": ["app/(view)/(auth)/login/*"],
       "@/atoms/*": ["app/components/atoms/*"],
-      "@/assets/*": ["app/shared/assets/*"],
+      "@/clientComponents": ["app/components/clientComponents"],
+      "@/components": ["app/components"],
       "@/fonts": ["app/shared/fonts"],
       "@/utils": ["app/shared/utils"],
+      "@/assets/*": ["app/shared/assets/*"],
       "@/helpers/*": ["app/shared/helpers/*"],
+      "@/apiRegister/*": ["app/api/register/*"],
+      "@/config/*": ["app/config/*"],
+      "@/api/*": ["app/api/*"],
       "@/app/*": ["app/*"]
     },
     "strict": true,
@@ -34,6 +36,12 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "types/**.ts"
+  ],
   "exclude": ["node_modules"]
 }

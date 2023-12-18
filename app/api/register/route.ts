@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { hash } from "bcryptjs";
 import { NextRequest } from "next/server";
-import prisma from "../prismaClient/prisma.server";
 import { registerSchema, RegisterData } from "@/register/registerSchema";
 import { sendResponse } from "@/helpers/api-response";
+import prisma from "@/config/prisma";
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,13 +17,8 @@ export async function POST(request: NextRequest) {
         name,
         lastName,
         email,
-        password: hashedPassword,
+        hashedPassword,
         image: null,
-      },
-      select: {
-        name: true,
-        lastName: true,
-        email: true,
       },
     });
 
