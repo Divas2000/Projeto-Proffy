@@ -34,7 +34,6 @@ export function LoginForm() {
     });
 
     if (response?.error) {
-      console.log(response);
       setLoginApiError(response.error);
     } else {
       setLoginApiError(null);
