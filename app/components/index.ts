@@ -1,4 +1,5 @@
 export * from "./atoms/Button/Button";
+export * from "./atoms/Card/Card";
 export * from "./atoms/ErrorMessage/ErrorMessage";
 export * from "./atoms/HomeButton/HomeButton";
 export * from "./atoms/IconButton/IconButton";
